@@ -34,4 +34,12 @@ describe("an instance of Mantle()", () => {
   it("dumps into an empty sh file", () => {
     expect(mantle.dump()).to.equal("#!/bin/sh\n");
   });
+
+  describe("when given a single line to execute", () => {
+    beforeEach(() => {
+      mantle.addCommand("echo", "hello");
+    });
+
+    it("doesn't error", () => {});
+  });
 });
