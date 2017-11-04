@@ -23,8 +23,11 @@ const Mantle = require("../../lib/mantle");
 let mantle;
 
 describe("an instance of Mantle()", () => {
-  it("can be created", () => {
+  beforeEach(() => {
     mantle = Mantle();
+  });
+
+  it("can be created", () => {
     expect(mantle).to.be.an.instanceof(Object);
   });
 });
