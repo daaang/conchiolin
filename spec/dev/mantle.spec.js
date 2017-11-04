@@ -18,10 +18,13 @@
 
 /* eslint-env mocha */
 const expect = require("chai").expect;
-const nothing = require("../../lib/mantle");
+const Mantle = require("../../lib/mantle");
 
-describe("nothing", () => {
-  it("is an object", () => {
-    expect(nothing).to.be.an.instanceof(Object);
+let mantle;
+
+describe("an instance of Mantle()", () => {
+  it("can be created", () => {
+    mantle = Mantle();
+    expect(mantle).to.be.an.instanceof(Object);
   });
 });

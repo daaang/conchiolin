@@ -17,5 +17,5 @@
 // along with conchiolin. If not, see <http://www.gnu.org/licenses/>.
 
 module.exports = {
-  "mantle": require("./lib/mantle")
+  "Mantle": require("./lib/mantle")
 };
