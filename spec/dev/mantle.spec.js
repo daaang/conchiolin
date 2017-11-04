@@ -18,7 +18,7 @@
 
 /* eslint-env mocha */
 const expect = require("chai").expect;
-const nothing = require("../lib/nothing");
+const nothing = require("../../lib/mantle");
 
 describe("nothing", () => {
   it("is an object", () => {
