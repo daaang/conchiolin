@@ -18,10 +18,28 @@
 
 /* eslint-env mocha */
 const expect = require("chai").expect;
-const nothing = require("../lib/nothing");
+const Mantle = require("../../lib/mantle");
 
-describe("nothing", () => {
-  it("is an object", () => {
-    expect(nothing).to.be.an.instanceof(Object);
+let mantle;
+
+describe("an instance of Mantle()", () => {
+  beforeEach(() => {
+    mantle = Mantle();
+  });
+
+  it("can be created", () => {
+    expect(mantle).to.be.an.instanceof(Object);
+  });
+
+  it("dumps into an empty sh file", () => {
+    expect(mantle.dump()).to.equal("#!/bin/sh\n");
+  });
+
+  describe("when given a single line to execute", () => {
+    beforeEach(() => {
+      mantle.addCommand("echo", "hello");
+    });
+
+    it("doesn't error", () => {});
   });
 });

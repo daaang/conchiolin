@@ -16,4 +16,6 @@
 // You should have received a copy of the GNU General Public License
 // along with conchiolin. If not, see <http://www.gnu.org/licenses/>.
 
-module.exports = {};
+module.exports = {
+  "Mantle": require("./lib/mantle")
+};
