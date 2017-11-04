@@ -30,4 +30,8 @@ describe("an instance of Mantle()", () => {
   it("can be created", () => {
     expect(mantle).to.be.an.instanceof(Object);
   });
+
+  it("dumps into an empty sh file", () => {
+    expect(mantle.dump()).to.equal("#!/bin/sh\n");
+  });
 });
