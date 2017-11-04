@@ -11,6 +11,9 @@ protein hardened with calcium carbonate.
 This project is called conchiolin, and it produces its own shell
 scripts.
 
+It is currently in early development and isn't anywhere even close to
+done.
+
 [travis]:       https://travis-ci.org/daaang/conchiolin
 [status-image]: https://travis-ci.org/daaang/conchiolin.svg?branch=master
 [coverage]:     https://coveralls.io/github/daaang/conchiolin
