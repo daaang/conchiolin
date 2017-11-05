@@ -30,6 +30,10 @@ describe("Literal()", () => {
   it("has raw output of ''", () => {
     expect(literal.raw).to.equal("");
   });
+
+  it("has toString output of two single quotes", () => {
+    expect(literal.toString()).to.equal("''");
+  });
 });
 
 describe("Literal('hi')", () => {
