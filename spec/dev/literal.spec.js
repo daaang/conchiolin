@@ -27,12 +27,16 @@ describe("Literal()", () => {
     literal = Literal();
   });
 
-  it("has raw output of ''", () => {
+  it("has raw output of an empty string", () => {
     expect(literal.raw).to.equal("");
   });
 
   it("has toString() output of two single quotes", () => {
     expect(literal.toString()).to.equal("''");
+  });
+
+  it("has single output of an empty string", () => {
+    expect(literal.single).to.equal("");
   });
 });
 
@@ -41,7 +45,7 @@ describe("Literal('hi')", () => {
     literal = Literal("hi");
   });
 
-  it("has raw output of 'hi'", () => {
+  it("has raw output of hi", () => {
     expect(literal.raw).to.equal("hi");
   });
 
