@@ -49,6 +49,32 @@ describe("Literal()", () => {
   });
 });
 
+describe("Literal('')", () => {
+  beforeEach(() => {
+    literal = Literal("");
+  });
+
+  it("has raw output of an empty string", () => {
+    expect(literal.raw).to.equal("");
+  });
+
+  it("has single-quoted none output", () => {
+    expect(literal.none).to.equal("''");
+  });
+
+  it("has single output of an empty string", () => {
+    expect(literal.single).to.equal("");
+  });
+
+  it("has double output of an empty string", () => {
+    expect(literal.double).to.equal("");
+  });
+
+  it("has toString() output of two single quotes", () => {
+    expect(literal.toString()).to.equal("''");
+  });
+});
+
 describe("Literal('hi')", () => {
   beforeEach(() => {
     literal = Literal("hi");
