@@ -32,10 +32,6 @@ describe("Literal()", () => {
     expect(literal.raw).to.equal("");
   });
 
-  it("has toString() output of two single quotes", () => {
-    expect(literal.toString()).to.equal("''");
-  });
-
   it("has undefined none output", () => {
     expect(literal.none).not.to.exist;
   });
@@ -47,6 +43,10 @@ describe("Literal()", () => {
   it("has double output of an empty string", () => {
     expect(literal.double).to.equal("");
   });
+
+  it("has toString() output of two single quotes", () => {
+    expect(literal.toString()).to.equal("''");
+  });
 });
 
 describe("Literal('hi')", () => {
@@ -56,6 +56,10 @@ describe("Literal('hi')", () => {
 
   it("has raw output of hi", () => {
     expect(literal.raw).to.equal("hi");
+  });
+
+  it("has none output of hi", () => {
+    expect(literal.none).to.equal("hi");
   });
 
   it("has toString() output of 'hi' in single quotes", () => {
