@@ -31,7 +31,7 @@ describe("Literal()", () => {
     expect(literal.raw).to.equal("");
   });
 
-  it("has toString output of two single quotes", () => {
+  it("has toString() output of two single quotes", () => {
     expect(literal.toString()).to.equal("''");
   });
 });
@@ -43,5 +43,9 @@ describe("Literal('hi')", () => {
 
   it("has raw output of 'hi'", () => {
     expect(literal.raw).to.equal("hi");
+  });
+
+  it("has toString() output of 'hi' in single quotes", () => {
+    expect(literal.toString()).to.equal("'hi'");
   });
 });
