@@ -38,6 +38,10 @@ describe("Literal()", () => {
   it("has single output of an empty string", () => {
     expect(literal.single).to.equal("");
   });
+
+  it("has double output of an empty string", () => {
+    expect(literal.double).to.equal("");
+  });
 });
 
 describe("Literal('hi')", () => {
