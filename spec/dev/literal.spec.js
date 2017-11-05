@@ -17,6 +17,7 @@
 // along with conchiolin. If not, see <http://www.gnu.org/licenses/>.
 
 /* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
 const expect = require("chai").expect;
 const Literal = require("../../lib/literal");
 
@@ -33,6 +34,10 @@ describe("Literal()", () => {
 
   it("has toString() output of two single quotes", () => {
     expect(literal.toString()).to.equal("''");
+  });
+
+  it("has undefined none output", () => {
+    expect(literal.none).not.to.exist;
   });
 
   it("has single output of an empty string", () => {
