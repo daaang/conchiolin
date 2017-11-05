@@ -27,7 +27,17 @@ describe("Literal()", () => {
     literal = Literal();
   });
 
-  it("is an empty string", () => {
+  it("has raw output of ''", () => {
     expect(literal.raw).to.equal("");
+  });
+});
+
+describe("Literal('hi')", () => {
+  beforeEach(() => {
+    literal = Literal("hi");
+  });
+
+  it("has raw output of 'hi'", () => {
+    expect(literal.raw).to.equal("hi");
   });
 });
