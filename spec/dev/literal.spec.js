@@ -100,3 +100,13 @@ describe("Literal('hi')", () => {
     expect(literal.toString()).to.equal("'hi'");
   });
 });
+
+describe("Literal('\"')", () => {
+  beforeEach(() => {
+    literal = Literal('"');
+  });
+
+  it("has raw output of \"", () => {
+    expect(literal.raw).to.equal('"');
+  });
+});
