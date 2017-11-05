@@ -62,6 +62,10 @@ describe("Literal('hi')", () => {
     expect(literal.none).to.equal("hi");
   });
 
+  it("has single output of hi", () => {
+    expect(literal.single).to.equal("hi");
+  });
+
   it("has toString() output of 'hi' in single quotes", () => {
     expect(literal.toString()).to.equal("'hi'");
   });
