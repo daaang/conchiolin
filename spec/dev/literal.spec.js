@@ -32,8 +32,8 @@ describe("Literal()", () => {
     expect(literal.raw).to.equal("");
   });
 
-  it("has undefined none output", () => {
-    expect(literal.none).not.to.exist;
+  it("has single-quoted none output", () => {
+    expect(literal.none).to.equal("''");
   });
 
   it("has single output of an empty string", () => {
