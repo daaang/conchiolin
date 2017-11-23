@@ -20,8 +20,20 @@
 const expect = require("chai").expect;
 const Literal = require("../../lib/literal");
 
+let literal;
+
 describe("Literal()", () => {
   it("is the same object as Literal('')", () => {
     expect(Literal()).to.equal(Literal(""));
+  });
+});
+
+describe("Literal('')", () => {
+  beforeEach(() => {
+    literal = Literal("");
+  });
+
+  it("has a raw value of ''", () => {
+    expect(literal.raw).to.equal("");
   });
 });
