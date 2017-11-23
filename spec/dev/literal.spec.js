@@ -34,6 +34,10 @@ const describeLiteral = function(raw,
       expect(literal).to.equal(Literal(raw));
     });
 
+    it("=== Literal(itself)", function() {
+      expect(literal).to.equal(Literal(literal));
+    });
+
     it("has a raw value of " + JSON.stringify(raw), function() {
       expect(literal.raw).to.equal(raw);
     });
