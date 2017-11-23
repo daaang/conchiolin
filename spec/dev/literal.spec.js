@@ -105,3 +105,16 @@ describeLiteral(" !\"#$%&'()*+,-./"
                 + "PQRSTUVWXYZ[\\\\]^_"
                 + "`abcdefghijklmno"
                 + "pqrstuvwxyz{|}~\"");
+
+describe("Literal", function() {
+  describe("#asValue", function() {
+    [
+      ["hello", "'hello'"]
+    ].forEach(duple => {
+      it("converts " + JSON.stringify(duple[0])
+         + " into " + JSON.stringify(duple[1]), () => {
+        expect(Literal(duple[0]).asValue()).to.equal(duple[1]);
+      });
+    });
+  });
+});
