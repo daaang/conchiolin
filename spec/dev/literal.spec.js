@@ -36,4 +36,8 @@ describe("Literal('')", () => {
   it("has a raw value of ''", () => {
     expect(literal.raw).to.equal("");
   });
+
+  it("has an unquoted value of \"''\"", () => {
+    expect(literal.noQuotes).to.equal("''");
+  });
 });
