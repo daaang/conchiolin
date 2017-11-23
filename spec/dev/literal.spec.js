@@ -20,6 +20,24 @@
 const expect = require("chai").expect;
 const Literal = require("../../lib/literal");
 
+const describeLiteral = function(raw,
+                                 noQuotes,
+                                 callback = function() {}) {
+  describe("Literal(" + JSON.stringify(raw) + ")", function() {
+    beforeEach(function() {
+      literal = Literal(raw);
+    });
+
+    it("has a raw value of " + JSON.stringify(raw), function() {
+      expect(literal.raw).to.equal(raw);
+    });
+
+    it("has a noQuotes value of " + JSON.stringify(noQuotes), function() {
+      expect(literal.noQuotes).to.equal(noQuotes);
+    });
+  });
+};
+
 let literal;
 
 describe("Literal()", () => {
@@ -28,16 +46,4 @@ describe("Literal()", () => {
   });
 });
 
-describe("Literal('')", () => {
-  beforeEach(() => {
-    literal = Literal("");
-  });
-
-  it("has a raw value of ''", () => {
-    expect(literal.raw).to.equal("");
-  });
-
-  it("has an unquoted value of \"''\"", () => {
-    expect(literal.noQuotes).to.equal("''");
-  });
-});
+describeLiteral("", "''");
