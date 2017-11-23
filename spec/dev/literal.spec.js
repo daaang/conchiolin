@@ -23,6 +23,7 @@ const Literal = require("../../lib/literal");
 const describeLiteral = function(raw,
                                  noQuotes,
                                  singleQuotes,
+                                 doubleQuotes,
                                  callback = function() {}) {
   describe("Literal(" + JSON.stringify(raw) + ")", function() {
     beforeEach(function() {
@@ -42,6 +43,11 @@ const describeLiteral = function(raw,
        + JSON.stringify(singleQuotes), function() {
       expect(literal.singleQuotes).to.equal(singleQuotes);
     });
+
+    it("has a doubleQuotes value of "
+       + JSON.stringify(doubleQuotes), function() {
+      expect(literal.doubleQuotes).to.equal(doubleQuotes);
+    });
   });
 };
 
@@ -53,4 +59,4 @@ describe("Literal()", () => {
   });
 });
 
-describeLiteral("", "''", "''");
+describeLiteral("", "''", "''", '""');
