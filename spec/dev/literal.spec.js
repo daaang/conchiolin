@@ -75,3 +75,4 @@ describeLiteral("with spaces",
                 '"with spaces"');
 describeLiteral(4, "4", "'4'", '"4"');
 describeLiteral("\\", "\\\\", "'\\'", '"\\\\"');
+describeLiteral("'", "\\'", "''\\'''", '"\'"');
