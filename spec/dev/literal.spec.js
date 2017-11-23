@@ -78,3 +78,27 @@ describeLiteral("\\", "\\\\", "'\\'", '"\\\\"');
 describeLiteral("'", "\\'", "''\\'''", '"\'"');
 describeLiteral('"', '\\"', "'\"'", '"\\""');
 describeLiteral("$", "\\$", "'$'", '"\\$"');
+describeLiteral(" !\"#$%&'()*+,-./"
+                + "0123456789:;<=>?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ[\\]^_"
+                + "`abcdefghijklmno"
+                + "pqrstuvwxyz{|}~",
+                "\\ \\!\\\"\\#\\$%\\&\\'\\(\\)\\*+\\,-./"
+                + "0123456789\\:\\;\\<=\\>\\?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ\\[\\\\\\]\\^_"
+                + "\\`abcdefghijklmno"
+                + "pqrstuvwxyz\\{\\|\\}\\~",
+                "' !\"#$%&'\\''()*+,-./"
+                + "0123456789:;<=>?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ[\\]^_"
+                + "`abcdefghijklmno"
+                + "pqrstuvwxyz{|}~'",
+                "\" !\\\"#\\$%&'()*+,-./"
+                + "0123456789:;<=>?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ[\\\\]^_"
+                + "`abcdefghijklmno"
+                + "pqrstuvwxyz{|}~\"");
