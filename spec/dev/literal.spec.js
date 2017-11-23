@@ -110,7 +110,8 @@ describe("Literal", function() {
   describe("#asValue", function() {
     [
       ["hello", "'hello'"],
-      [1, "1"]
+      [1, "1"],
+      [12345678, "12345678"]
     ].forEach(duple => {
       it("converts " + JSON.stringify(duple[0])
          + " into " + JSON.stringify(duple[1]), () => {
