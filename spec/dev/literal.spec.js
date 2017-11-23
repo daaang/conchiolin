@@ -17,96 +17,108 @@
 // along with conchiolin. If not, see <http://www.gnu.org/licenses/>.
 
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions */
 const expect = require("chai").expect;
 const Literal = require("../../lib/literal");
+
+const describeLiteral = function(raw,
+                                 noQuotes,
+                                 singleQuotes,
+                                 doubleQuotes) {
+  describe("Literal(" + JSON.stringify(raw) + ")", function() {
+    beforeEach(function() {
+      literal = Literal(raw);
+    });
+
+    it("=== Literal(" + JSON.stringify(raw) + ")", function() {
+      expect(literal).to.equal(Literal(raw));
+    });
+
+    it("=== Literal(itself)", function() {
+      expect(literal).to.equal(Literal(literal));
+    });
+
+    it("has a raw value of " + JSON.stringify(raw), function() {
+      expect(literal.raw).to.equal(raw);
+    });
+
+    it("has a noQuotes value of "
+       + JSON.stringify(noQuotes), function() {
+      expect(literal.noQuotes).to.equal(noQuotes);
+    });
+
+    it("has a singleQuotes value of "
+       + JSON.stringify(singleQuotes), function() {
+      expect(literal.singleQuotes).to.equal(singleQuotes);
+    });
+
+    it("has a doubleQuotes value of "
+       + JSON.stringify(doubleQuotes), function() {
+      expect(literal.doubleQuotes).to.equal(doubleQuotes);
+    });
+  });
+};
 
 let literal;
 
 describe("Literal()", () => {
-  beforeEach(() => {
-    literal = Literal();
-  });
-
-  it("has raw output of an empty string", () => {
-    expect(literal.raw).to.equal("");
-  });
-
-  it("has single-quoted none output", () => {
-    expect(literal.none).to.equal("''");
-  });
-
-  it("has single output of an empty string", () => {
-    expect(literal.single).to.equal("");
-  });
-
-  it("has double output of an empty string", () => {
-    expect(literal.double).to.equal("");
-  });
-
-  it("has toString() output of two single quotes", () => {
-    expect(literal.toString()).to.equal("''");
+  it("=== Literal('')", () => {
+    expect(Literal()).to.equal(Literal(""));
   });
 });
 
-describe("Literal('')", () => {
-  beforeEach(() => {
-    literal = Literal("");
-  });
+describeLiteral("", "''", "''", '""');
+describeLiteral("hi", "hi", "'hi'", '"hi"');
+describeLiteral("with spaces",
+                "with\\ spaces",
+                "'with spaces'",
+                '"with spaces"');
+describeLiteral(4, "4", "'4'", '"4"');
+describeLiteral("\\", "\\\\", "'\\'", '"\\\\"');
+describeLiteral("'", "\\'", "\\'", '"\'"');
+describeLiteral("''", "\\'\\'", "\\'\\'", '"\'\'"');
+describeLiteral("'hi", "\\'hi", "\\''hi'", '"\'hi"');
+describeLiteral("'a''b", "\\'a\\'\\'b", "\\''a'\\'\\''b'", "\"'a''b\"");
+describeLiteral("a''", "a\\'\\'", "'a'\\'\\'", '"a\'\'"');
+describeLiteral('"', '\\"', "'\"'", '"\\""');
+describeLiteral("$", "\\$", "'$'", '"\\$"');
+describeLiteral(" !\"#$%&'()*+,-./"
+                + "0123456789:;<=>?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ[\\]^_"
+                + "`abcdefghijklmno"
+                + "pqrstuvwxyz{|}~",
+                "\\ \\!\\\"\\#\\$%\\&\\'\\(\\)\\*+\\,-./"
+                + "0123456789\\:\\;\\<=\\>\\?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ\\[\\\\\\]\\^_"
+                + "\\`abcdefghijklmno"
+                + "pqrstuvwxyz\\{\\|\\}\\~",
+                "' !\"#$%&'\\''()*+,-./"
+                + "0123456789:;<=>?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ[\\]^_"
+                + "`abcdefghijklmno"
+                + "pqrstuvwxyz{|}~'",
+                "\" !\\\"#\\$%&'()*+,-./"
+                + "0123456789:;<=>?"
+                + "@ABCDEFGHIJKLMNO"
+                + "PQRSTUVWXYZ[\\\\]^_"
+                + "`abcdefghijklmno"
+                + "pqrstuvwxyz{|}~\"");
+describeLiteral("\n", "'\n'", "'\n'", '"\n"');
 
-  it("has raw output of an empty string", () => {
-    expect(literal.raw).to.equal("");
-  });
-
-  it("has single-quoted none output", () => {
-    expect(literal.none).to.equal("''");
-  });
-
-  it("has single output of an empty string", () => {
-    expect(literal.single).to.equal("");
-  });
-
-  it("has double output of an empty string", () => {
-    expect(literal.double).to.equal("");
-  });
-
-  it("has toString() output of two single quotes", () => {
-    expect(literal.toString()).to.equal("''");
-  });
-});
-
-describe("Literal('hi')", () => {
-  beforeEach(() => {
-    literal = Literal("hi");
-  });
-
-  it("has raw output of hi", () => {
-    expect(literal.raw).to.equal("hi");
-  });
-
-  it("has none output of hi", () => {
-    expect(literal.none).to.equal("hi");
-  });
-
-  it("has single output of hi", () => {
-    expect(literal.single).to.equal("hi");
-  });
-
-  it("has double output of hi", () => {
-    expect(literal.double).to.equal("hi");
-  });
-
-  it("has toString() output of 'hi' in single quotes", () => {
-    expect(literal.toString()).to.equal("'hi'");
-  });
-});
-
-describe("Literal('\"')", () => {
-  beforeEach(() => {
-    literal = Literal('"');
-  });
-
-  it("has raw output of \"", () => {
-    expect(literal.raw).to.equal('"');
+describe("Literal", function() {
+  describe("#asValue", function() {
+    [
+      ["hello", "'hello'"],
+      ["it's me", '"it\'s me"'],
+      [1, "1"],
+      [12345678, "12345678"]
+    ].forEach(duple => {
+      it("converts " + JSON.stringify(duple[0])
+         + " into " + JSON.stringify(duple[1]), () => {
+        expect(Literal(duple[0]).asValue()).to.equal(duple[1]);
+      });
+    });
   });
 });
