@@ -77,3 +77,4 @@ describeLiteral(4, "4", "'4'", '"4"');
 describeLiteral("\\", "\\\\", "'\\'", '"\\\\"');
 describeLiteral("'", "\\'", "''\\'''", '"\'"');
 describeLiteral('"', '\\"', "'\"'", '"\\""');
+describeLiteral("$", "\\$", "'$'", '"\\$"');
