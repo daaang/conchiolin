@@ -30,6 +30,10 @@ const describeLiteral = function(raw,
       literal = Literal(raw);
     });
 
+    it("=== Literal(" + JSON.stringify(raw) + ")", function() {
+      expect(literal).to.equal(Literal(raw));
+    });
+
     it("has a raw value of " + JSON.stringify(raw), function() {
       expect(literal.raw).to.equal(raw);
     });
