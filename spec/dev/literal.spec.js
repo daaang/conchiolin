@@ -64,3 +64,4 @@ describe("Literal()", () => {
 });
 
 describeLiteral("", "''", "''", '""');
+describeLiteral("hi", "hi", "'hi'", '"hi"');
