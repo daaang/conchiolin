@@ -17,96 +17,11 @@
 // along with conchiolin. If not, see <http://www.gnu.org/licenses/>.
 
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions */
 const expect = require("chai").expect;
 const Literal = require("../../lib/literal");
 
-let literal;
-
 describe("Literal()", () => {
-  beforeEach(() => {
-    literal = Literal();
-  });
-
-  it("has raw output of an empty string", () => {
-    expect(literal.raw).to.equal("");
-  });
-
-  it("has single-quoted none output", () => {
-    expect(literal.none).to.equal("''");
-  });
-
-  it("has single output of an empty string", () => {
-    expect(literal.single).to.equal("");
-  });
-
-  it("has double output of an empty string", () => {
-    expect(literal.double).to.equal("");
-  });
-
-  it("has toString() output of two single quotes", () => {
-    expect(literal.toString()).to.equal("''");
-  });
-});
-
-describe("Literal('')", () => {
-  beforeEach(() => {
-    literal = Literal("");
-  });
-
-  it("has raw output of an empty string", () => {
-    expect(literal.raw).to.equal("");
-  });
-
-  it("has single-quoted none output", () => {
-    expect(literal.none).to.equal("''");
-  });
-
-  it("has single output of an empty string", () => {
-    expect(literal.single).to.equal("");
-  });
-
-  it("has double output of an empty string", () => {
-    expect(literal.double).to.equal("");
-  });
-
-  it("has toString() output of two single quotes", () => {
-    expect(literal.toString()).to.equal("''");
-  });
-});
-
-describe("Literal('hi')", () => {
-  beforeEach(() => {
-    literal = Literal("hi");
-  });
-
-  it("has raw output of hi", () => {
-    expect(literal.raw).to.equal("hi");
-  });
-
-  it("has none output of hi", () => {
-    expect(literal.none).to.equal("hi");
-  });
-
-  it("has single output of hi", () => {
-    expect(literal.single).to.equal("hi");
-  });
-
-  it("has double output of hi", () => {
-    expect(literal.double).to.equal("hi");
-  });
-
-  it("has toString() output of 'hi' in single quotes", () => {
-    expect(literal.toString()).to.equal("'hi'");
-  });
-});
-
-describe("Literal('\"')", () => {
-  beforeEach(() => {
-    literal = Literal('"');
-  });
-
-  it("has raw output of \"", () => {
-    expect(literal.raw).to.equal('"');
+  it("is the same object as Literal('')", () => {
+    expect(Literal()).to.equal(Literal(""));
   });
 });
