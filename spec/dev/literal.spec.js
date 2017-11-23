@@ -111,6 +111,7 @@ describe("Literal", function() {
   describe("#asValue", function() {
     [
       ["hello", "'hello'"],
+      ["it's me", '"it\'s me"'],
       [1, "1"],
       [12345678, "12345678"]
     ].forEach(duple => {
