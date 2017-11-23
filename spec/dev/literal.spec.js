@@ -58,7 +58,7 @@ const describeLiteral = function(raw,
 let literal;
 
 describe("Literal()", () => {
-  it("is the same object as Literal('')", () => {
+  it("=== Literal('')", () => {
     expect(Literal()).to.equal(Literal(""));
   });
 });
