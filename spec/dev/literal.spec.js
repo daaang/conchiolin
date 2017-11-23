@@ -105,6 +105,7 @@ describeLiteral(" !\"#$%&'()*+,-./"
                 + "PQRSTUVWXYZ[\\\\]^_"
                 + "`abcdefghijklmno"
                 + "pqrstuvwxyz{|}~\"");
+describeLiteral("\n", "'\n'", "'\n'", '"\n"');
 
 describe("Literal", function() {
   describe("#asValue", function() {
