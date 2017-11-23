@@ -78,6 +78,7 @@ describeLiteral("\\", "\\\\", "'\\'", '"\\\\"');
 describeLiteral("'", "\\'", "\\'", '"\'"');
 describeLiteral("''", "\\'\\'", "\\'\\'", '"\'\'"');
 describeLiteral("'hi", "\\'hi", "\\''hi'", '"\'hi"');
+describeLiteral("'a''b", "\\'a\\'\\'b", "\\''a'\\'\\''b'", "\"'a''b\"");
 describeLiteral('"', '\\"', "'\"'", '"\\""');
 describeLiteral("$", "\\$", "'$'", '"\\$"');
 describeLiteral(" !\"#$%&'()*+,-./"
