@@ -65,3 +65,7 @@ describe("Literal()", () => {
 
 describeLiteral("", "''", "''", '""');
 describeLiteral("hi", "hi", "'hi'", '"hi"');
+describeLiteral("with spaces",
+                "with\\ spaces",
+                "'with spaces'",
+                '"with spaces"');
