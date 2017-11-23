@@ -23,8 +23,7 @@ const Literal = require("../../lib/literal");
 const describeLiteral = function(raw,
                                  noQuotes,
                                  singleQuotes,
-                                 doubleQuotes,
-                                 callback = function() {}) {
+                                 doubleQuotes) {
   describe("Literal(" + JSON.stringify(raw) + ")", function() {
     beforeEach(function() {
       literal = Literal(raw);
