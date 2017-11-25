@@ -147,4 +147,10 @@ describe("Literal", function() {
       expect(Literal("%%").format()).to.equal('"%"');
     });
   });
+
+  describe("when inited with '%%%%'", () => {
+    it("formats into '\"%%\"'", () => {
+      expect(Literal("%%%%").format()).to.equal('"%%"');
+    });
+  });
 });
