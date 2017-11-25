@@ -135,4 +135,10 @@ describe("Literal", function() {
       });
     });
   });
+
+  describe("when inited with '%%'", () => {
+    it("formats into '\"%\"'", () => {
+      expect(Literal("%%").format()).to.equal('"%"');
+    });
+  });
 });
