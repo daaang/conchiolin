@@ -121,4 +121,36 @@ describe("Literal", function() {
       });
     });
   });
+
+  describe("#asCommand", function() {
+    [
+      ["hello", "hello"],
+      ["my word", "'my word'"],
+      ['"hey"', '\'"hey"\''],
+      ["it's \"this thing\"", '"it\'s \\"this thing\\""']
+    ].forEach(duple => {
+      it("converts " + JSON.stringify(duple[0])
+         + " into " + JSON.stringify(duple[1]), () => {
+        expect(Literal(duple[0]).asCommand()).to.equal(duple[1]);
+      });
+    });
+  });
+
+  describe("when inited with 'hey'", () => {
+    it("formats into '\"hey\"'", () => {
+      expect(Literal("hey").format()).to.equal('"hey"');
+    });
+  });
+
+  describe("when inited with '%%'", () => {
+    it("formats into '\"%\"'", () => {
+      expect(Literal("%%").format()).to.equal('"%"');
+    });
+  });
+
+  describe("when inited with '%%%%'", () => {
+    it("formats into '\"%%\"'", () => {
+      expect(Literal("%%%%").format()).to.equal('"%%"');
+    });
+  });
 });
