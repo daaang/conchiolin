@@ -136,6 +136,12 @@ describe("Literal", function() {
     });
   });
 
+  describe("when inited with 'hey'", () => {
+    it("formats into '\"hey\"'", () => {
+      expect(Literal("hey").format()).to.equal('"hey"');
+    });
+  });
+
   describe("when inited with '%%'", () => {
     it("formats into '\"%\"'", () => {
       expect(Literal("%%").format()).to.equal('"%"');
