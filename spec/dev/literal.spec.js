@@ -125,7 +125,8 @@ describe("Literal", function() {
   describe("#asCommand", function() {
     [
       ["hello", "hello"],
-      ["my word", '"my word"']
+      ["my word", '"my word"'],
+      ['"hey"', '\'"hey"\'']
     ].forEach(duple => {
       it("converts " + JSON.stringify(duple[0])
          + " into " + JSON.stringify(duple[1]), () => {
