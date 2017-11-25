@@ -121,4 +121,15 @@ describe("Literal", function() {
       });
     });
   });
+
+  describe("#asCommand", function() {
+    [
+      ["hello", "hello"]
+    ].forEach(duple => {
+      it("converts " + JSON.stringify(duple[0])
+         + " into " + JSON.stringify(duple[1]), () => {
+        expect(Literal(duple[0]).asCommand()).to.equal(duple[1]);
+      });
+    });
+  });
 });
